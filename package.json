@@ -7,16 +7,20 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
+    "himawari:latest": "tsx src/cli/himawari-latest.ts",
     "preview": "$npm_execpath run build && vite preview",
     "deploy": "$npm_execpath run build && wrangler deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
   },
   "dependencies": {
+    "fast-xml-parser": "^5.11.1",
     "hono": "^4.13.7",
     "maplibre-gl": "^6.8.0"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.44.0",
+    "@types/node": "^26.5.0",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2",
     "vite": "^8.1.4",
     "vite-ssr-components": "^0.6.1",

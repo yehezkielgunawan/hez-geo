@@ -12,6 +12,21 @@ pnpm run dev
 
 Open `http://localhost:5173`.
 
+## Download Latest Himawari Input
+
+```bash
+pnpm himawari:latest
+```
+
+The command searches NOAA's public Himawari-9 S3 bucket for the newest complete
+ten-minute Full Disk observation, then downloads the 30 compressed B11, B13, and B15
+segments. Files are stored under `data/himawari/` and are intentionally gitignored.
+Existing files with the expected byte size are reused on later runs.
+
+This is a manual local command. It does not schedule itself or update the deployed
+dashboard automatically. The downloaded `.DAT.bz2` files are raw inputs only; this
+milestone does not decompress, decode, calibrate, or generate Ash RGB imagery.
+
 ## Verify
 
 ```bash
@@ -43,8 +58,9 @@ coordinates.
 
 This is a visualization MVP, not an eruption detector, ash classifier, dispersion
 model, or official hazard forecast. Wind guidance describes likely transport direction
-at the selected pressure level only. Satellite processing from NOAA Himawari-9 Open
-Data, generated Ash RGB products, persistence, and deployment are planned next.
+at the selected pressure level only. NOAA acquisition is currently a manual local
+workflow. Decoding, calibration, generated Ash RGB products, persistence, scheduling,
+and deployment remain planned work.
 
 ## Data Attribution
 
